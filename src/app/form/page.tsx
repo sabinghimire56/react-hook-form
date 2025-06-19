@@ -1,16 +1,15 @@
 'use client'
 
-import { Flex, Paper, Title, Divider, Stack, TextInput, NumberInput, Button, Group, Box } from '@mantine/core';
+import { Flex, Paper, Title, Divider, Stack, TextInput, Button, Group, Box } from '@mantine/core';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema, FormValues } from '@/app/lib/validation';
-import { IconUser, IconAt, IconHash } from '@tabler/icons-react';
+import { IconUser, IconAt } from '@tabler/icons-react';
 
 export default function FormPage() {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
   } = useForm<FormValues>({
@@ -40,7 +39,7 @@ export default function FormPage() {
             <Stack gap="md">
               <TextInput
                 label="Fist Name"
-                // placeholder="Sabin Ghimire"
+                placeholder='Your First Name'
                 leftSection={<IconUser size={18} />}
                 radius="md"
                 size="md"
@@ -50,6 +49,7 @@ export default function FormPage() {
 
               <TextInput
                 label="Last Name"
+                placeholder='Your Last Name'
                 leftSection={<IconUser size={18} />}
                 radius="md"
                 size="md"
@@ -59,22 +59,12 @@ export default function FormPage() {
 
               <TextInput
                 label="Email Address"
-                // placeholder="you@example.com"
+                placeholder='Your Email Address'
                 leftSection={<IconAt size={18} />}
                 radius="md"
                 size="md"
                 {...register('email')}
                 error={errors.email?.message}
-              />
-
-              <NumberInput
-                label="Your Age"
-                // placeholder="e.g. 21"
-                leftSection={<IconHash size={18} />}
-                radius="md"
-                size="md"
-                error={errors.age?.message}
-                onChange={(value) => setValue('age', Number(value))}
               />
 
               <Group grow>

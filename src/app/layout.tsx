@@ -1,22 +1,20 @@
 import '@mantine/core/styles.css';
-import { MantineProvider } from '@mantine/core';
-import { ReactNode } from 'react';
+import { Providers } from '@/app/components/providers/index';
 
 export const metadata = {
-  title: 'My Form App',
-  description: 'A form using Mantine + RHF + Zod',
+  title: 'My App',
+  description: 'Using TanStack Query, Mantine, etc.',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* <ColorSchemeScript defaultColorScheme="light" /> */}
       </head>
       <body>
-        <MantineProvider defaultColorScheme="light" withCssVariables>
+        <Providers>
           {children}
-        </MantineProvider>
+        </Providers>
       </body>
     </html>
   );

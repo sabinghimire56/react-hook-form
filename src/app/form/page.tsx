@@ -39,18 +39,27 @@ export default function FormPage() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stack gap="md">
               <TextInput
-                label="Full Name"
-                placeholder="Sabin Ghimire"
+                label="Fist Name"
+                // placeholder="Sabin Ghimire"
                 leftSection={<IconUser size={18} />}
                 radius="md"
                 size="md"
-                {...register('name')}
-                error={errors.name?.message}
+                {...register('firstname')}
+                error={errors.firstname?.message}
+              />
+
+              <TextInput
+                label="Last Name"
+                leftSection={<IconUser size={18} />}
+                radius="md"
+                size="md"
+                {...register('secondname')}
+                error={errors.secondname?.message}
               />
 
               <TextInput
                 label="Email Address"
-                placeholder="you@example.com"
+                // placeholder="you@example.com"
                 leftSection={<IconAt size={18} />}
                 radius="md"
                 size="md"
@@ -60,7 +69,7 @@ export default function FormPage() {
 
               <NumberInput
                 label="Your Age"
-                placeholder="e.g. 21"
+                // placeholder="e.g. 21"
                 leftSection={<IconHash size={18} />}
                 radius="md"
                 size="md"

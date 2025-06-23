@@ -1,12 +1,15 @@
-'use client'
+'use client';
 
 import { Flex, Paper, Title, Divider, Stack, TextInput, Button, Group, Box } from '@mantine/core';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema, FormValues } from '@/app/lib/validation';
 import { IconUser, IconAt } from '@tabler/icons-react';
+import { useRouter } from 'next/navigation';
 
 export default function FormPage() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -17,18 +20,13 @@ export default function FormPage() {
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log('✅ Form Submitted:', data);
+    console.log('Form Submitted:', data);
     reset();
+    router.push('/home');
   };
 
   return (
-    <Flex
-      justify="center"
-      align="center"
-      style={{ height: '100vh' }}
-      px="sm"
-      bg="gray.1"
-    >
+    <Flex justify="center" align="center" style={{ height: '100vh' }} px="sm" bg="gray.1">
       <Box maw={420} w="100%">
         <Paper shadow="xl" radius="lg" p="lg" withBorder>
           <Title order={2} ta="center" mb="sm">
@@ -49,7 +47,7 @@ export default function FormPage() {
 
               <TextInput
                 label="Last Name"
-                placeholder='Your Last Name'
+                placeholder="Your Last Name"
                 leftSection={<IconUser size={18} />}
                 radius="md"
                 size="md"
@@ -59,7 +57,7 @@ export default function FormPage() {
 
               <TextInput
                 label="Email Address"
-                placeholder='Your Email Address'
+                placeholder="Your Email Address"
                 leftSection={<IconAt size={18} />}
                 radius="md"
                 size="md"

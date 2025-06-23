@@ -9,7 +9,11 @@ export default function HomePage() {
       <Stack align="center">
         <Title order={2}>Welcome to My Form App</Title>
         <Text>Click below to open the form</Text>
-        <Button component={Link} href="/form">
+        <Button component={Link}
+          radius="xl"
+          size="md"
+          variant="gradient"
+          gradient={{ from: 'indigo', to: 'cyan' }} href="/form" >
           Go to Form
         </Button>
       </Stack>
